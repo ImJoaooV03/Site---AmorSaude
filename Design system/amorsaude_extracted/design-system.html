@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AmorSaúde — Design System</title>
+<link href="assets/style_74e4cf314fb0.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="assets/slider_bc8d054e7bf7.css" media="all" rel="stylesheet" type="text/css"/>
+<style>
+/* ============================================================
+   Design System Nav — fixed top bar
+   ============================================================ */
+#ds-nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #0c223c;
+  border-bottom: 3px solid var(--cyan);
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 50px;
+}
+#ds-nav a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0 16px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  border-right: 1px solid rgba(97,193,208,0.15);
+  transition: all 0.2s ease;
+}
+#ds-nav a:hover {
+  background: var(--cyan);
+  color: #0c223c;
+}
+#ds-nav .ds-brand {
+  color: #fff;
+  font-family: 'arboria-black', sans-serif;
+  font-size: 13px;
+  padding-right: 24px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  margin-right: 8px;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   Design System Section Wrappers
+   ============================================================ */
+.ds-section {
+  padding: 80px 0 60px;
+  border-bottom: 2px solid var(--gray-middle);
+}
+.ds-section:last-child {
+  border-bottom: none;
+}
+.ds-section-header {
+  margin-bottom: 48px;
+}
+.ds-section-title {
+  font-family: 'arboria-black', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.ds-section-heading {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--gray);
+}
+
+/* ============================================================
+   Typography section
+   ============================================================ */
+.ds-type-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ds-type-table tr {
+  border-bottom: 1px solid var(--gray-middle);
+}
+.ds-type-table tr:last-child {
+  border-bottom: none;
+}
+.ds-type-table td {
+  padding: 20px 16px;
+  vertical-align: middle;
+}
+.ds-type-label {
+  font-family: 'arboria', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  width: 130px;
+  min-width: 130px;
+}
+.ds-type-preview {
+  flex: 1;
+}
+.ds-type-spec {
+  font-family: 'arboria', sans-serif;
+  font-size: 11px;
+  color: var(--gray-dark);
+  text-align: right;
+  white-space: nowrap;
+  padding-left: 24px;
+}
+
+/* ============================================================
+   Colors section
+   ============================================================ */
+.ds-color-group {
+  margin-bottom: 48px;
+}
+.ds-color-group-title {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  margin-bottom: 16px;
+}
+.ds-color-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ds-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 120px;
+}
+.ds-swatch-block {
+  width: 120px;
+  height: 64px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.ds-swatch-name {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 11px;
+  color: var(--gray);
+  line-height: 1.3;
+}
+.ds-swatch-hex {
+  font-family: 'arboria', sans-serif;
+  font-size: 10px;
+  color: var(--gray-dark);
+  letter-spacing: 0.04em;
+}
+
+/* Gradient swatches */
+.ds-gradient-swatch .ds-swatch-block {
+  height: 80px;
+  width: 200px;
+}
+.ds-gradient-swatch {
+  width: 200px;
+}
+
+/* Surface cards */
+.ds-surface-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+.ds-surface-card {
+  border-radius: 16px;
+  padding: 20px 24px;
+  width: 180px;
+  height: 90px;
+  display: flex;
+  align-items: flex-end;
+}
+.ds-surface-label {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Components section
+   ============================================================ */
+.ds-component-group {
+  margin-bottom: 60px;
+}
+.ds-component-group-title {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gray-middle);
+}
+.ds-states-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+.ds-state-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.ds-state-label {
+  font-family: 'arboria', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+}
+
+/* Simulated hover/focus/disabled states */
+.ds-btn-hover-sim {
+  color: var(--branco) !important;
+  background: var(--red-dark) !important;
+}
+.ds-btn-agendar-hover-sim {
+  color: var(--branco) !important;
+  background: var(--red) !important;
+}
+.ds-btn-vermais-hover-sim {
+  color: var(--cyan-light2) !important;
+  background: var(--green-cyan) !important;
+}
+.ds-btn-resultado-hover-sim {
+  background: var(--cyan) !important;
+  color: var(--branco) !important;
+}
+.ds-btn-disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+.ds-card-hover-sim {
+  background: var(--cyan-light3) !important;
+}
+.ds-card-esp-hover-sim a img {
+  scale: 1.1 !important;
+}
+
+/* ============================================================
+   Layout section
+   ============================================================ */
+.ds-layout-demo {
+  margin-bottom: 48px;
+}
+.ds-layout-demo-title {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  margin-bottom: 12px;
+}
+.ds-layout-annotation {
+  font-family: 'arboria', sans-serif;
+  font-size: 12px;
+  color: var(--cyan-dark);
+  margin-bottom: 16px;
+}
+.ds-container-demo {
+  position: relative;
+  background: var(--cyan-light);
+  padding: 0 15px;
+  max-width: 1310px;
+  margin: auto;
+}
+.ds-container-inner {
+  background: var(--branco);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 14px;
+  color: var(--cyan);
+}
+.ds-spacing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.ds-spacing-table td, .ds-spacing-table th {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--gray-middle);
+  font-family: 'arboria', sans-serif;
+  font-size: 12px;
+}
+.ds-spacing-table th {
+  font-family: 'arboria-bold', sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--gray-dark);
+}
+.ds-spacing-bar {
+  display: inline-block;
+  height: 12px;
+  background: var(--cyan);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Motion section
+   ============================================================ */
+.ds-motion-gallery {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.ds-motion-card {
+  border-radius: 16px;
+  border: 1px solid var(--gray-middle);
+  padding: 24px;
+  background: var(--bgbranco);
+}
+.ds-motion-card-title {
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-dark);
+  margin-bottom: 16px;
+}
+.ds-motion-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+/* ============================================================
+   Icons section
+   ============================================================ */
+.ds-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+.ds-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-middle);
+  background: var(--bgbranco);
+}
+.ds-icon-label {
+  font-family: 'arboria', sans-serif;
+  font-size: 10px;
+  text-align: center;
+  color: var(--gray-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.ds-icon-sizes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   Hero clone overrides (keep minimal to not change layout)
+   ============================================================ */
+#ds-hero-clone {
+  /* isolation wrapper */
+}
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.ds-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--gray-middle);
+  margin: 40px 0;
+}
+.ds-badge {
+  display: inline-block;
+  font-family: 'arboria-bold', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--cyan-light);
+  color: var(--cyan-dark2);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+.bounceInLeft {
+  animation: bounceInLeft 1s both;
+}
+
+@keyframes ds-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.ds-anim-pulse {
+  animation: ds-pulse 2s ease-in-out infinite;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP NAV
+     ============================================================ -->
+<nav id="ds-nav">
+  <span class="ds-brand">AmorSaúde · DS</span>
+  <a href="#ds-hero">Hero</a>
+  <a href="#ds-typography">Tipografia</a>
+  <a href="#ds-colors">Cores</a>
+  <a href="#ds-components">Componentes</a>
+  <a href="#ds-layout">Layout</a>
+  <a href="#ds-motion">Motion</a>
+  <a href="#ds-icons">Ícones</a>
+</nav>
+
+
+<!-- ============================================================
+     SECTION 0 — HERO (exact clone, text adapted)
+     ============================================================ -->
+<div id="ds-hero" id="ds-hero-clone">
+
+  <!-- MENU (exact clone) -->
+  <section id="menu">
+    <div class="bartop"></div>
+    <div class="container">
+      <div class="group_menu_desktop">
+        <div class="mask">
+          <a href="#">
+            <img alt="logo" class="logo_top" loading="lazy" src="assets/logo_amorsaude_color_c113eac964a0.svg"/>
+          </a>
+        </div>
+        <nav class="fullnav">
+          <ul class="desktop_menu">
+            <a class="line_text transition" href="#ds-typography"><li>Tipografia</li></a>
+            <a class="line_text transition" href="#ds-colors"><li>Cores</li></a>
+            <a class="line_text transition" href="#ds-components"><li>Componentes</li></a>
+            <a class="line_text transition" href="#ds-layout"><li>Layout</li></a>
+            <a class="line_text transition" href="#ds-motion"><li>Motion</li></a>
+            <a class="line_text transition" href="#ds-icons"><li>Ícones</li></a>
+          </ul>
+        </nav>
+      </div>
+      <div class="line_gray"></div>
+      <!-- mobile menu -->
+      <div class="groupmenu" id="mobile_menu" style="display:none;">
+        <ul>
+          <a class="transition" href="#ds-typography"><li>Tipografia</li></a>
+          <a class="transition" href="#ds-colors"><li>Cores</li></a>
+          <a class="transition" href="#ds-components"><li>Componentes</li></a>
+          <a class="transition" href="#ds-layout"><li>Layout</li></a>
+          <a class="transition" href="#ds-motion"><li>Motion</li></a>
+          <a class="transition" href="#ds-icons"><li>Ícones</li></a>
+        </ul>
+      </div>
+      <div class="group_menu_desktop group_menu_desktop_center">
+        <div class="desktop_menu">
+          <a class="menu_two line_text transition" href="#ds-typography">
+            <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_medicina_4f25846081a4.svg"/>Tipografia
+          </a>
+          <a class="menu_two line_text transition" href="#ds-colors">
+            <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_odontologia_ad0305f02dd2.svg"/>Cores
+          </a>
+          <a class="menu_two line_text transition" href="#ds-components">
+            <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_cirurgias_38dc45c46266.svg"/>Componentes
+          </a>
+          <a class="menu_two line_text transition" href="#ds-icons">
+            <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_portal_paciente_3d62307d840b.svg"/>Ícones
+          </a>
+        </div>
+        <div class="action_marque_consulta">
+          <a class="bt_marque_consulta transition" href="#ds-components">
+            <img alt="icon" loading="lazy" src="assets/icon_menu_marque_consulta_684d115981a9.svg"/>
+            Ver Componentes
+          </a>
+        </div>
+      </div>
+      <div class="mobnav">
+        <div id="menuToggle">
+          <input id="enable_menu" type="checkbox"/>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDER (exact clone, adapted content) -->
+  <div class="swiffy-slider slider-item-nogap slider-item-snapstart slider-nav-square slider-nav-sm slider-nav-visible slider-nav-autohide slider-nav-page slider-nav-autoplay slider-nav-autopause slider-indicators-round slider-indicators-highlight slider-indicators-sm"
+       data-slider-nav-autoplay-interval="3000"
+       style="--swiffy-slider-nav-light: #d53e36; --swiffy-slider-nav-dark: #fff; padding-top: 15px;">
+    <ul class="slider-container">
+      <li class=""><a href="#ds-typography"><img alt="Design System — Tipografia" fetchpriority="high" src="assets/18_3e1c102d429a.webp" style="width:100%;height:auto;"/></a></li>
+      <li class=""><a href="#ds-colors"><img alt="Design System — Cores" class="preload-blur preload-ok" src="assets/13_d92ce7936d39.webp" style="width:100%;height:auto;"/></a></li>
+      <li class=""><a href="#ds-components"><img alt="Design System — Componentes" class="preload-blur preload-ok" src="assets/04_49a837173b9b.webp" style="width:100%;height:auto;"/></a></li>
+      <li class="slide-visible"><a href="#ds-motion"><img alt="Design System — Motion" class="preload-blur preload-ok" src="assets/10_67b05aedbc0f.webp" style="width:100%;height:auto;"/></a></li>
+    </ul>
+    <button class="slider-nav" type="button"></button>
+    <button class="slider-nav slider-nav-next" type="button"></button>
+    <div class="slider-indicators">
+      <button class="active"></button>
+      <button></button>
+      <button></button>
+      <button></button>
+    </div>
+  </div>
+
+  <!-- STEPS (exact clone, text adapted) -->
+  <section id="home">
+    <div class="container">
+      <div class="group_steps">
+        <div class="item transition">
+          <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_1_cdc228786b3c.svg"/>
+          <h5 class="title">Tipografia</h5>
+          <p>Fontes Arboria em três pesos — Regular, Bold e Black — com escala de tamanhos documentada.</p>
+        </div>
+        <div class="item transition">
+          <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_2_693a7980a5a5.svg"/>
+          <h5 class="title">Cores</h5>
+          <p>Paleta completa de tokens de cor: Cyan, Red, Green e escalas de cinza, superfícies e gradientes.</p>
+        </div>
+        <div class="item transition">
+          <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_3_0a7b85877685.svg"/>
+          <h5 class="title">Componentes</h5>
+          <p>Botões, cards, inputs e padrões de UI com todos os estados: default, hover, active e disabled.</p>
+        </div>
+        <div class="item transition">
+          <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_4_62fda0e92b37.svg"/>
+          <h5 class="title">Motion</h5>
+          <p>Animações de entrada, transições de hover, elevações e comportamentos de scroll documentados.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICE TABLE (exact clone, text adapted) -->
+    <div class="novo-presite-precos">
+      <div class="line_gray"></div>
+      <div class="container">
+        <div class="row main-row">
+          <div class="col">
+            <div class="novo-presite-precos-titulo">
+              <img alt="icon" class="icon" loading="lazy" src="assets/icon___tabela_consulta_4f31e6797340.svg"/>
+              <span class="novo-presite-precos-titulo-texto">Tokens de tamanho de fonte:</span>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <div class="col spc">
+                <a class="novo-presite-precos-box-preco cartao-todos" href="#ds-typography">
+                  <div class="novo-presite-precos-box-preco-titulo">
+                    <span>Display</span>
+                  </div>
+                  <div class="novo-presite-precos-box-preco-content">
+                    <div class="novo-presite-precos-box-preco-preco">
+                      <div class="novo-presite-precos-box-preco-preco-nome">HEADING 1</div>
+                      <div class="novo-presite-precos-box-preco-preco-valor"><span>px</span> 48</div>
+                    </div>
+                    <div class="novo-presite-precos-box-preco-preco">
+                      <div class="novo-presite-precos-box-preco-preco-nome">HEADING 2</div>
+                      <div class="novo-presite-precos-box-preco-preco-valor"><span>px</span> 40</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col">
+                <div class="novo-presite-precos-box-preco">
+                  <div class="novo-presite-precos-box-preco-titulo">Body</div>
+                  <div class="novo-presite-precos-box-preco-content">
+                    <div class="novo-presite-precos-box-preco-preco">
+                      <div class="novo-presite-precos-box-preco-preco-nome">BOLD M</div>
+                      <div class="novo-presite-precos-box-preco-preco-valor"><span>px</span> 18</div>
+                    </div>
+                    <div class="novo-presite-precos-box-preco-preco">
+                      <div class="novo-presite-precos-box-preco-preco-nome">REGULAR</div>
+                      <div class="novo-presite-precos-box-preco-preco-valor"><span>px</span> 14</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="txt_valor_home_aster">*Todos os valores em pixels, usando a fonte Arboria conforme tokens definidos</div>
+      </div>
+      <div class="line_gray"></div>
+    </div>
+
+    <!-- AREAS (exact clone, text adapted) -->
+    <div class="container">
+      <div class="box">
+        <div class="titulo">Seções do Design System</div>
+        <a class="bt-agendar transition" href="#ds-components">VER COMPONENTES</a>
+      </div>
+      <div class="group_especialidades">
+        <div class="item dropshadow_light transition">
+          <a href="#ds-typography"><img alt="Tipografia" class="myimg img_responsive transition" loading="lazy" src="assets/home_areas_clinico_geral_d7869d23d67b.webp"/></a>
+          <a class="linktwo" href="#ds-typography"><p class="item-txt">Tipografia</p></a>
+        </div>
+        <div class="item dropshadow_light transition">
+          <a href="#ds-colors"><img alt="Cores" class="img_responsive transition" loading="lazy" src="assets/home_areas_cardiologia_b2c30cb17700.webp"/></a>
+          <a href="#ds-colors"><p class="item-txt">Cores</p></a>
+        </div>
+        <div class="item dropshadow_light transition">
+          <a href="#ds-components"><img alt="Componentes" class="img_responsive transition" loading="lazy" src="assets/home_areas_oftalmologia_f5236dbf2fcf.webp"/></a>
+          <a href="#ds-components"><p class="item-txt">Componentes</p></a>
+        </div>
+        <div class="item dropshadow_light transition">
+          <a href="#ds-layout"><img alt="Layout" class="img_responsive transition" loading="lazy" src="assets/home_areas_ginecologia_4359e6336821.webp"/></a>
+          <a href="#ds-layout"><p class="item-txt">Layout</p></a>
+        </div>
+        <div class="item dropshadow_light transition">
+          <a href="#ds-motion"><img alt="Motion" class="img_responsive transition" loading="lazy" src="assets/home_areas_odontologia_de78c3efb6a1.webp"/></a>
+          <a href="#ds-motion"><p class="item-txt">Motion</p></a>
+        </div>
+      </div>
+      <a class="bt-vermais transition" href="#ds-icons">ver ícones e assets</a>
+    </div>
+  </section>
+</div>
+
+
+<!-- ============================================================
+     SECTION 1 — TYPOGRAPHY
+     ============================================================ -->
+<div id="ds-typography" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">01 — Tipografia</div>
+      <div class="ds-section-heading">Escala tipográfica</div>
+    </div>
+
+    <table class="ds-type-table">
+      <tbody>
+
+        <!-- Heading 1 — #home .box .titulo -->
+        <tr>
+          <td class="ds-type-label">Heading 1</td>
+          <td class="ds-type-preview">
+            <div class="titulo" style="font-family:'arboria-bold';font-size:48px;line-height:100%;color:var(--cyan);">Nossas áreas de atuação</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 48px / 100% · cyan</td>
+        </tr>
+
+        <!-- Heading 2 — widget-unidades .banner .box-text -->
+        <tr>
+          <td class="ds-type-label">Heading 2</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:40px;line-height:52px;color:#D53E36;">São mais de<br/><span style="font-family:'arboria-black';font-size:54px;line-height:52px;color:#D53E36;">521 unidades</span></div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 40px / 52px · red<br/>arboria-black · 54px (span)</td>
+        </tr>
+
+        <!-- Heading 3 — widget-tour360 .titulo -->
+        <tr>
+          <td class="ds-type-label">Heading 3</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria';font-size:40px;line-height:100%;color:#61C1D0;">Dê um zoom nos detalhes.<br/><span style="font-family:'arboria-bold';font-size:80px;line-height:100%;color:#D53E36;">Tour 360.</span></div>
+          </td>
+          <td class="ds-type-spec">arboria · 40px / 100% · cyan<br/>arboria-bold · 80px (span) · red</td>
+        </tr>
+
+        <!-- Heading 4 — widget-numeros .titulo + .text -->
+        <tr>
+          <td class="ds-type-label">Heading 4</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:56px;line-height:120%;color:#61C1D0;">521</div>
+            <div style="font-family:'arboria-bold';font-size:32px;line-height:120%;color:#D53E36;">unidades em funcionamento</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 56px / 120% · cyan<br/>arboria-bold · 32px / 120% · red</td>
+        </tr>
+
+        <!-- Bold L — widget-gpw .text -->
+        <tr>
+          <td class="ds-type-label">Bold L</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:32px;line-height:38px;color:#D53E36;">AmorSaúde: Excelência reconhecida</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 32px / 38px · red</td>
+        </tr>
+
+        <!-- Bold M — bt_marque_consulta, section titles -->
+        <tr>
+          <td class="ds-type-label">Bold M</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:24px;line-height:120%;color:var(--cyan);">Clínico Geral</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 24px / 120% · cyan</td>
+        </tr>
+
+        <!-- Bold S — footer_titulo -->
+        <tr>
+          <td class="ds-type-label">Bold S</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:18px;line-height:90%;color:#ffffff;background:var(--green-cyan);display:inline-block;padding:4px 8px;border-radius:6px;">Institucional</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 18px / 90% · white (footer)</td>
+        </tr>
+
+        <!-- Paragraph — widget-gpw .text span -->
+        <tr>
+          <td class="ds-type-label">Paragraph</td>
+          <td class="ds-type-preview">
+            <p style="font-family:'arboria';font-size:18px;line-height:21px;color:#515151;">Premiada pelo Reclame Aqui 2024 e Great Place to Work. Garantindo um Ambiente de Trabalho e Atendimento Excepcionais.</p>
+          </td>
+          <td class="ds-type-spec">arboria · 18px / 21px · #515151</td>
+        </tr>
+
+        <!-- Regular L — desktop_menu + nav -->
+        <tr>
+          <td class="ds-type-label">Regular L</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:16px;line-height:18px;letter-spacing:0.015em;color:var(--branco);background:var(--red);display:inline-block;padding:8px 16px;border-radius:8px;">Marque sua consulta</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 16px / 18px · button</td>
+        </tr>
+
+        <!-- Regular M — #home .group_steps p, prefooter p -->
+        <tr>
+          <td class="ds-type-label">Regular M</td>
+          <td class="ds-type-preview">
+            <p style="font-family:'arboria';font-size:16px;line-height:1.5;color:var(--gray-dark2);">Agende uma consulta médica ou procedimento odontológico pelo telefone ou site.</p>
+          </td>
+          <td class="ds-type-spec">arboria · 16px / 1.5 · gray-dark2</td>
+        </tr>
+
+        <!-- Regular S — footer_txt, menu labels -->
+        <tr>
+          <td class="ds-type-label">Regular S</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria';font-size:14px;line-height:160%;color:#FFFFFF;background:var(--green-cyan);display:inline-block;padding:4px 8px;border-radius:4px;">Fornecendo aos Brasileiros acesso a medicina de qualidade.</div>
+          </td>
+          <td class="ds-type-spec">arboria · 14px / 160% · white (footer)</td>
+        </tr>
+
+        <!-- Outline Display — #prefooter .titulo_numbers -->
+        <tr>
+          <td class="ds-type-label">Display Outline</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-black';font-size:65px;line-height:120%;color:var(--red);-webkit-text-fill-color:transparent;-webkit-text-stroke:3px var(--red);">+DE <span style="font-size:100px;padding-left:15px;-webkit-text-fill-color:var(--red);-webkit-text-stroke:transparent;">4.000</span></div>
+          </td>
+          <td class="ds-type-spec">arboria-black · 65px outline · 100px filled · red</td>
+        </tr>
+
+        <!-- XS — desktop_menu nav, labels uppercase -->
+        <tr>
+          <td class="ds-type-label">Label / Nav</td>
+          <td class="ds-type-preview">
+            <div style="font-family:'arboria-bold';font-size:13px;line-height:100%;text-transform:uppercase;color:var(--cyan);letter-spacing:0.02em;">Quem Somos · Unidades · Telemedicina</div>
+          </td>
+          <td class="ds-type-spec">arboria-bold · 13px · uppercase · cyan</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 2 — COLORS & SURFACES
+     ============================================================ -->
+<div id="ds-colors" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">02 — Cores &amp; Superfícies</div>
+      <div class="ds-section-heading">Paleta de tokens</div>
+    </div>
+
+    <!-- Primary palette -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Cyan — Marca principal</div>
+      <div class="ds-color-row">
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#61c1d0;"></div>
+          <div class="ds-swatch-name">--cyan</div>
+          <div class="ds-swatch-hex">#61C1D0</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#ebf9fa;border:1px solid #ddd;"></div>
+          <div class="ds-swatch-name">--cyan-light</div>
+          <div class="ds-swatch-hex">#EBF9FA</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#f1fcfd;border:1px solid #ddd;"></div>
+          <div class="ds-swatch-name">--cyan-light2</div>
+          <div class="ds-swatch-hex">#F1FCFD</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#e0feff;border:1px solid #ddd;"></div>
+          <div class="ds-swatch-name">--cyan-light3</div>
+          <div class="ds-swatch-hex">#E0FEFF</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#54c5cf;"></div>
+          <div class="ds-swatch-name">--cyan-medium</div>
+          <div class="ds-swatch-hex">#54C5CF</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#00aec3;"></div>
+          <div class="ds-swatch-name">--cyan-dark</div>
+          <div class="ds-swatch-hex">#00AEC3</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#0094a5;"></div>
+          <div class="ds-swatch-name">--cyan-dark2</div>
+          <div class="ds-swatch-hex">#0094A5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Red palette -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Red — Ação e destaque</div>
+      <div class="ds-color-row">
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#d53e36;"></div>
+          <div class="ds-swatch-name">--red</div>
+          <div class="ds-swatch-hex">#D53E36</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#9e0c08;"></div>
+          <div class="ds-swatch-name">--red-dark</div>
+          <div class="ds-swatch-hex">#9E0C08</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#f54851;"></div>
+          <div class="ds-swatch-name">--red-light</div>
+          <div class="ds-swatch-hex">#F54851</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Green palette -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Green — Parceiro e footer</div>
+      <div class="ds-color-row">
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#40ADB8;"></div>
+          <div class="ds-swatch-name">--green-cyan</div>
+          <div class="ds-swatch-hex">#40ADB8</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#00967a;"></div>
+          <div class="ds-swatch-name">--green-light</div>
+          <div class="ds-swatch-hex">#00967A</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#178f91;"></div>
+          <div class="ds-swatch-name">--green-medium</div>
+          <div class="ds-swatch-hex">#178F91</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#00614e;"></div>
+          <div class="ds-swatch-name">--green</div>
+          <div class="ds-swatch-hex">#00614E</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#014b3d;"></div>
+          <div class="ds-swatch-name">--green-dark</div>
+          <div class="ds-swatch-hex">#014B3D</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grays -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Cinzas — Neutros</div>
+      <div class="ds-color-row">
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#000000;"></div>
+          <div class="ds-swatch-name">--black</div>
+          <div class="ds-swatch-hex">#000000</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#505050;"></div>
+          <div class="ds-swatch-name">--gray</div>
+          <div class="ds-swatch-hex">#505050</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#616161;"></div>
+          <div class="ds-swatch-name">--gray-dark2</div>
+          <div class="ds-swatch-hex">#616161</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#767676;"></div>
+          <div class="ds-swatch-name">--gray-dark</div>
+          <div class="ds-swatch-hex">#767676</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#9C9C9C;"></div>
+          <div class="ds-swatch-name">--gray-menu-hamburger</div>
+          <div class="ds-swatch-hex">#9C9C9C</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#cccccc;border:1px solid #ddd;"></div>
+          <div class="ds-swatch-name">--gray-light</div>
+          <div class="ds-swatch-hex">#CCCCCC</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#eeeeee;border:1px solid #ddd;"></div>
+          <div class="ds-swatch-name">--gray-middle</div>
+          <div class="ds-swatch-hex">#EEEEEE</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#f9f9f9;border:1px solid #eee;"></div>
+          <div class="ds-swatch-name">--gray-light2</div>
+          <div class="ds-swatch-hex">#F9F9F9</div>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-block" style="background:#ffffff;border:1px solid #eee;"></div>
+          <div class="ds-swatch-name">--branco / --bgbranco</div>
+          <div class="ds-swatch-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gradients -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Gradientes — Contextos de uso</div>
+      <div class="ds-color-row">
+        <div class="ds-swatch ds-gradient-swatch">
+          <div class="ds-swatch-block" style="background:linear-gradient(90deg,rgba(102,195,209,1) 0%,rgba(237,248,250,1) 100%);"></div>
+          <div class="ds-swatch-name">Banner Unidades (90deg)</div>
+          <div class="ds-swatch-hex">#66C3D1 → #EDF8FA</div>
+        </div>
+        <div class="ds-swatch ds-gradient-swatch">
+          <div class="ds-swatch-block" style="background:var(--cyan-medium);"></div>
+          <div class="ds-swatch-name">Header (solid)</div>
+          <div class="ds-swatch-hex">--cyan-medium #54C5CF</div>
+        </div>
+        <div class="ds-swatch ds-gradient-swatch">
+          <div class="ds-swatch-block" style="background:#30a5aa;"></div>
+          <div class="ds-swatch-name">Widget Unidades bg</div>
+          <div class="ds-swatch-hex">#30A5AA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surfaces -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Superfícies — Backgrounds de seção e card</div>
+      <div class="ds-surface-row">
+        <div class="ds-surface-card" style="background:#ffffff;border:1px solid #eee;">
+          <span class="ds-surface-label" style="color:#888;">Page BG</span>
+        </div>
+        <div class="ds-surface-card" style="background:#f1fcfd;">
+          <span class="ds-surface-label" style="color:var(--cyan-dark);">--cyan-light2</span>
+        </div>
+        <div class="ds-surface-card" style="background:#ebf9fa;">
+          <span class="ds-surface-label" style="color:var(--cyan-dark);">--cyan-light</span>
+        </div>
+        <div class="ds-surface-card" style="background:#e0feff;">
+          <span class="ds-surface-label" style="color:var(--cyan-dark);">--cyan-light3</span>
+        </div>
+        <div class="ds-surface-card" style="background:#f5f5f5;">
+          <span class="ds-surface-label" style="color:#888;">Card Esp.</span>
+        </div>
+        <div class="ds-surface-card" style="background:#70c5d4;">
+          <span class="ds-surface-label" style="color:#fff;">Form BG</span>
+        </div>
+        <div class="ds-surface-card" style="background:var(--green-cyan);">
+          <span class="ds-surface-label" style="color:#fff;">Footer</span>
+        </div>
+        <div class="ds-surface-card" style="background:#0c223c;">
+          <span class="ds-surface-label" style="color:var(--cyan);">Dark (azul-dark-bic)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borders / Dividers -->
+    <div class="ds-color-group">
+      <div class="ds-color-group-title">Bordas e divisores</div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:600px;">
+        <div>
+          <div class="line_gray"></div>
+          <div class="ds-swatch-hex" style="margin-top:6px;">line_gray — 1px · --gray-middle (#EEEEEE)</div>
+        </div>
+        <div>
+          <div style="width:100%;height:1px;background:#EFEFEF;"></div>
+          <div class="ds-swatch-hex" style="margin-top:6px;">Divisor interno de card — 1px · #EFEFEF</div>
+        </div>
+        <div>
+          <div style="width:100%;height:1px;border-top:1px solid #D5D5D5;"></div>
+          <div class="ds-swatch-hex" style="margin-top:6px;">Borda card GPW — 1px · #D5D5D5</div>
+        </div>
+        <div>
+          <div style="width:100%;height:1px;border-top:1px solid #f1f1f1;"></div>
+          <div class="ds-swatch-hex" style="margin-top:6px;">Borda marque_bt_generic — 1px · #F1F1F1</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 3 — UI COMPONENTS
+     ============================================================ -->
+<div id="ds-components" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">03 — Componentes</div>
+      <div class="ds-section-heading">Biblioteca de UI</div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="ds-component-group">
+      <div class="ds-component-group-title">Botões</div>
+
+      <!-- bt_marque_consulta -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">bt_marque_consulta — Botão primário vermelho</div>
+      <div class="ds-states-row">
+        <div class="ds-state-item">
+          <a class="bt_marque_consulta transition" href="#">
+            <img alt="icon" loading="lazy" src="assets/icon_menu_marque_consulta_684d115981a9.svg"/>
+            Marque sua consulta
+          </a>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt_marque_consulta transition ds-btn-hover-sim" href="#">
+            <img alt="icon" loading="lazy" src="assets/icon_menu_marque_consulta_684d115981a9.svg"/>
+            Marque sua consulta
+          </a>
+          <span class="ds-state-label">Hover</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt_marque_consulta transition ds-btn-disabled" href="#">
+            <img alt="icon" loading="lazy" src="assets/icon_menu_marque_consulta_684d115981a9.svg"/>
+            Marque sua consulta
+          </a>
+          <span class="ds-state-label">Disabled</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- bt-agendar -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">bt-agendar — Botão outline vermelho</div>
+      <div class="ds-states-row">
+        <div class="ds-state-item">
+          <a class="bt-agendar transition" href="#" style="display:inline-flex;align-items:center;justify-content:center;width:262px;height:56px;padding:16px 24px;font-family:'arboria-bold';font-size:18px;line-height:22px;color:var(--red);text-decoration:none;background:var(--bgbranco);border:1px solid var(--red);border-radius:12px;white-space:nowrap;text-transform:uppercase;text-align:center;">AGENDE SUA CONSULTA</a>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt-agendar transition ds-btn-agendar-hover-sim" href="#" style="display:inline-flex;align-items:center;justify-content:center;width:262px;height:56px;padding:16px 24px;font-family:'arboria-bold';font-size:18px;line-height:22px;text-decoration:none;border:1px solid var(--red);border-radius:12px;white-space:nowrap;text-transform:uppercase;text-align:center;">AGENDE SUA CONSULTA</a>
+          <span class="ds-state-label">Hover</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt-agendar transition ds-btn-disabled" href="#" style="display:inline-flex;align-items:center;justify-content:center;width:262px;height:56px;padding:16px 24px;font-family:'arboria-bold';font-size:18px;line-height:22px;color:var(--red);text-decoration:none;background:var(--bgbranco);border:1px solid var(--red);border-radius:12px;white-space:nowrap;text-transform:uppercase;text-align:center;">AGENDE SUA CONSULTA</a>
+          <span class="ds-state-label">Disabled</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- bt-vermais -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">bt-vermais — Botão outline cyan</div>
+      <div class="ds-states-row">
+        <div class="ds-state-item">
+          <a class="bt-vermais transition" href="#" style="display:inline-flex;max-width:300px;height:56px;padding:16px 24px;font-family:'arboria-bold';font-size:16px;line-height:19px;color:var(--green-cyan);text-decoration:none;background:var(--cyan-light2);border:1px solid var(--green-cyan);border-radius:12px;white-space:nowrap;text-transform:uppercase;">veja mais áreas de atuação</a>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt-vermais transition ds-btn-vermais-hover-sim" href="#" style="display:inline-flex;max-width:300px;height:56px;padding:16px 24px;font-family:'arboria-bold';font-size:16px;line-height:19px;text-decoration:none;border:1px solid var(--green-cyan);border-radius:12px;white-space:nowrap;text-transform:uppercase;">veja mais áreas de atuação</a>
+          <span class="ds-state-label">Hover</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- bt_resultado_exames menu -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">bt_resultado_exames (menu) — Botão cyan outline</div>
+      <div class="ds-states-row">
+        <div class="ds-state-item">
+          <a class="bt_resultado_exames transition" href="#" style="display:inline-flex;flex-direction:row;justify-content:center;align-items:center;padding:8px;gap:8px;width:160px;height:50px;background:var(--cyan-light);border-radius:6px;color:var(--cyan);text-align:left;text-decoration:none;font-family:'arboria-bold',sans-serif;border:1px solid var(--cyan);">
+            <img alt="icon" class="icon_resultado_exames transition" loading="lazy" src="assets/icon_menu_portal_paciente_3d62307d840b.svg" style="filter:var(--filter-to-cian);width:24px;height:24px;"/>
+            Portal Paciente
+          </a>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="bt_resultado_exames transition ds-btn-resultado-hover-sim" href="#" style="display:inline-flex;flex-direction:row;justify-content:center;align-items:center;padding:8px;gap:8px;width:160px;height:50px;border-radius:6px;text-align:left;text-decoration:none;font-family:'arboria-bold',sans-serif;border:1px solid var(--cyan);">
+            <img alt="icon" class="icon_resultado_exames transition" loading="lazy" src="assets/icon_menu_portal_paciente_3d62307d840b.svg" style="filter:var(--filter-to-white);width:24px;height:24px;"/>
+            Portal Paciente
+          </a>
+          <span class="ds-state-label">Hover</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- marque_bt_cdt -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">marque_bt_cdt — Botão verde (Cartão de TODOS)</div>
+      <div class="ds-states-row">
+        <div class="ds-state-item">
+          <a class="marque_bt_cdt transition" href="#" style="display:inline-flex;flex-direction:row;align-items:center;padding:8px 16px;gap:16px;width:258px;height:54px;background:var(--green);border-radius:8px;font-family:'Arboria';font-size:16px;line-height:18px;letter-spacing:0.015em;color:var(--branco);text-decoration:none;">
+            <img alt="icon" loading="lazy" src="assets/icon_marque_dropdown_app_cdt_f06b25b5e213.svg"/>
+            <div class="marque_bt_cdt_txt">APP Cartão de TODOS <span>Somente para filiados</span></div>
+          </a>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <a class="marque_bt_cdt transition" href="#" style="display:inline-flex;flex-direction:row;align-items:center;padding:8px 16px;gap:16px;width:258px;height:54px;background:var(--green-dark);border-radius:8px;font-family:'Arboria';font-size:16px;line-height:18px;letter-spacing:0.015em;color:var(--branco);text-decoration:none;">
+            <img alt="icon" loading="lazy" src="assets/icon_marque_dropdown_app_cdt_f06b25b5e213.svg"/>
+            <div class="marque_bt_cdt_txt">APP Cartão de TODOS <span>Somente para filiados</span></div>
+          </a>
+          <span class="ds-state-label">Hover</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="ds-component-group">
+      <div class="ds-component-group-title">Cards</div>
+
+      <!-- Step card -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">group_steps .item — Card de passo</div>
+      <div class="ds-states-row" style="align-items:flex-start;">
+        <div class="ds-state-item">
+          <div class="item transition dropshadow_light" style="position:relative;min-height:140px;height:auto;border-radius:24px;padding:20px;background:var(--cyan-light2);margin-top:30px;width:240px;cursor:default;">
+            <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_1_cdc228786b3c.svg" style="position:relative;margin:-81px 0 0 0;"/>
+            <h5 style="margin:10px 0;color:var(--red);font-size:24px;font-family:'arboria-bold';">Agendamento</h5>
+            <p style="color:var(--gray-dark2);">Agende uma consulta médica pelo telefone ou site.</p>
+          </div>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <div class="item transition dropshadow_light ds-card-hover-sim" style="position:relative;min-height:140px;height:auto;border-radius:24px;padding:20px;margin-top:30px;width:240px;cursor:default;">
+            <img alt="icon" class="img-responsive icon" fetchpriority="high" src="assets/icon_home_steps_2_693a7980a5a5.svg" style="position:relative;margin:-81px 0 0 0;"/>
+            <h5 style="margin:10px 0;color:var(--red);font-size:24px;font-family:'arboria-bold';">Acolhimento</h5>
+            <p style="color:var(--gray-dark2);">Você é encaminhado para uma pré-consulta.</p>
+          </div>
+          <span class="ds-state-label">Hover</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- Especialidade card -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">group_especialidades .item — Card de especialidade</div>
+      <div class="ds-states-row" style="align-items:flex-start;">
+        <div class="ds-state-item">
+          <div class="item dropshadow_light transition" style="background:#f5f5f5;border-radius:24px;width:200px;overflow:hidden;">
+            <a href="#" style="text-decoration:none;color:var(--cyan);display:block;overflow:hidden;border-radius:24px;">
+              <img alt="icon" class="img_responsive transition" loading="lazy" src="assets/home_areas_ginecologia_4359e6336821.webp"/>
+            </a>
+            <a href="#"><p class="item-txt" style="display:flex;align-items:center;justify-content:center;padding:10px 0;width:100%;font-family:'arboria-bold';font-size:24px;line-height:120%;text-align:center;color:var(--cyan);text-decoration:none;">Ginecologia</p></a>
+          </div>
+          <span class="ds-state-label">Default</span>
+        </div>
+        <div class="ds-state-item">
+          <div class="item dropshadow_light transition" style="background:#f5f5f5;border-radius:24px;width:200px;overflow:hidden;">
+            <a href="#" style="text-decoration:underline;color:var(--cyan);display:block;overflow:hidden;border-radius:24px;">
+              <img alt="icon" class="img_responsive transition" loading="lazy" src="assets/home_areas_oftalmologia_f5236dbf2fcf.webp" style="scale:1.1;"/>
+            </a>
+            <a href="#"><p class="item-txt" style="display:flex;align-items:center;justify-content:center;padding:10px 0;width:100%;font-family:'arboria-bold';font-size:24px;line-height:120%;text-align:center;color:var(--cyan);text-decoration:underline;">Oftalmologia</p></a>
+          </div>
+          <span class="ds-state-label">Hover</span>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- Numbers card -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">widget-numeros .box_txt — Card de números</div>
+      <div style="padding:60px 0 30px;">
+        <div class="widget-numeros">
+          <div class="container">
+            <div class="flexme">
+              <div class="box_txt">
+                <div class="box_itens item1">
+                  <img alt="icon" class="icon" loading="lazy" src="assets/icon_home_unidades_redcircle_1_ba0cbbc3d40c.svg"/>
+                  <div class="titulo">521</div>
+                  <div class="text">unidades em funcionamento</div>
+                </div>
+                <div class="box_itens item2">
+                  <img alt="icon" class="icon" loading="lazy" src="assets/icon_home_unidades_redcircle_2_b837be139fe3.svg"/>
+                  <div class="titulo">37</div>
+                  <div class="text">áreas de atuação</div>
+                </div>
+                <div class="box_itens item3">
+                  <img alt="icon" class="icon" loading="lazy" src="assets/icon_home_unidades_redcircle_3_09d160736776.svg"/>
+                  <div class="titulo">+de 1,5 mi</div>
+                  <div class="text">atendimentos por mês</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-divider"></div>
+
+      <!-- GPW card -->
+      <div class="ds-layout-demo-title" style="font-family:'arboria-bold';font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-dark);margin-bottom:16px;">widget-gpw .box_txt — Card de selos</div>
+      <div class="widget-gpw" style="padding-top:20px;">
+        <div class="container">
+          <div class="flexme">
+            <div class="box_txt">
+              <div class="text">AmorSaúde: Excelência reconhecida<br/>
+                <span>Premiada pelo Reclame Aqui 2024 e Great Place to Work.</span>
+              </div>
+              <div class="selos">
+                <img alt="icon" class="logo_ra img_responsive" loading="lazy" src="assets/selo_ra_2025_5d1b01ffddd5.svg"/>
+                <img alt="icon" class="logo_gptw img_responsive" loading="lazy" src="assets/selo_gptw_2025_3f14f122e2b8.svg"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DROPDOWN MENU -->
+    <div class="ds-component-group">
+      <div class="ds-component-group-title">Dropdown — Marque sua consulta</div>
+      <div style="position:relative;height:280px;">
+        <div class="action_marque_consulta" style="position:relative;">
+          <a class="bt_marque_consulta transition" href="#" style="pointer-events:none;">
+            <img alt="icon" loading="lazy" src="assets/icon_menu_marque_consulta_684d115981a9.svg"/>
+            Marque sua consulta
+          </a>
+          <div id="box_marque_consulta" style="display:flex;position:absolute;top:60px;left:0;">
+            <a class="marque_bt_cdt" href="#">
+              <img alt="icon" loading="lazy" src="assets/icon_marque_dropdown_app_cdt_f06b25b5e213.svg"/>
+              <div class="marque_bt_cdt_txt">APP Cartão de TODOS <span>Somente para filiados</span></div>
+            </a>
+            <a class="marque_bt_generic" href="#">
+              <svg fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_1018_898)"><path d="M13.601 2.32606C12.8676 1.58555 11.9941 0.998501 11.0314 0.599149C10.0688 0.199797 9.03621 -0.00386082 7.994 5.54251e-05C3.627 5.54251e-05 0.068 3.55806 0.064 7.92606C0.064 9.32506 0.43 10.6861 1.121 11.8911L0 16.0001L4.204 14.8981C5.36649 15.5323 6.66976 15.8641 7.994 15.8631H7.998C12.366 15.8631 15.924 12.3051 15.928 7.93306C15.9289 6.89112 15.7237 5.85929 15.3241 4.897C14.9246 3.9347 14.3396 3.06095 13.601 2.32606Z" fill="#61C1D0"></path></g></svg>
+              Whatsapp
+            </a>
+            <a class="marque_bt_generic" href="#">
+              <svg fill="none" height="16" viewbox="0 0 16 16" width="16"><path d="M6 12C6 12.6667 5.91667 13.1667 5.75 13.5H5C4.86739 13.5 4.74021 13.5527 4.64645 13.6464C4.55268 13.7402 4.5 13.8674 4.5 14C4.5 14.1326 4.55268 14.2598 4.64645 14.3536C4.74021 14.4473 4.86739 14.5 5 14.5H11C11.1326 14.5 11.2598 14.4473 11.3536 14.3536C11.4473 14.2598 11.5 14.1326 11.5 14C11.5 13.8674 11.4473 13.7402 11.3536 13.6464C11.2598 13.5527 11.1326 13.5 11 13.5H10.25C10.0833 13.1667 10 12.6667 10 12H14C16 12 16 10 16 10V4C16 2 14 2 14 2H2C0 2 0 4 0 4V10C0 12 2 12 2 12H6Z" fill="#61C1D0"></path></svg>
+              Portal do Paciente
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="ds-component-group">
+      <div class="ds-component-group-title">Modal</div>
+      <div style="position:relative;background:rgba(0,0,0,0.5);padding:40px;border-radius:16px;max-width:500px;">
+        <div id="modalsystem" style="background:white;border-radius:16px;padding:32px;position:relative;">
+          <div id="close_modal" style="position:absolute;top:16px;right:16px;cursor:pointer;">
+            <img class="icon_close_modal transition" src="assets/icon_close_modal_c2e372559f8e.svg" style="width:24px;height:24px;"/>
+          </div>
+          <div class="modal_title" style="font-family:'arboria-bold';font-size:24px;color:var(--cyan);margin-bottom:16px;">Título do Modal</div>
+          <div class="modal_content" style="font-family:'arboria';font-size:16px;color:var(--gray-dark2);">Conteúdo de exemplo para o componente modal. Background overlay escuro, card branco com border-radius 16px.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 4 — LAYOUT & SPACING
+     ============================================================ -->
+<div id="ds-layout" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">04 — Layout &amp; Espaçamento</div>
+      <div class="ds-section-heading">Containers e grids</div>
+    </div>
+
+    <!-- Container -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-demo-title">Container principal (.container)</div>
+      <div class="ds-layout-annotation">max-width: 1310px · padding: 0 15px · margin: auto</div>
+      <div style="background:var(--cyan-light);padding:8px;border-radius:8px;">
+        <div class="container" style="background:white;padding:16px;border-radius:4px;">
+          <div style="font-family:'arboria-bold';font-size:13px;color:var(--cyan);text-align:center;">max-width 1310px — conteúdo aqui</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid steps -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-demo-title">Grid — group_steps</div>
+      <div class="ds-layout-annotation">display: grid · grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)) · grid-gap: 25px · padding: 60px 0 30px 0</div>
+      <div style="display:grid;grid-gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+        <div style="background:var(--cyan-light2);border-radius:24px;height:80px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan-dark);">col 1 — 285px min</div>
+        <div style="background:var(--cyan-light2);border-radius:24px;height:80px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan-dark);">col 2 — 285px min</div>
+        <div style="background:var(--cyan-light2);border-radius:24px;height:80px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan-dark);">col 3 — 285px min</div>
+        <div style="background:var(--cyan-light2);border-radius:24px;height:80px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan-dark);">col 4 — 285px min</div>
+      </div>
+    </div>
+
+    <!-- Grid especialidades -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-demo-title">Grid — group_especialidades</div>
+      <div class="ds-layout-annotation">display: grid · grid-template-columns: repeat(auto-fit, minmax(229px, 1fr)) · grid-gap: 25px · padding: 60px 0</div>
+      <div style="display:grid;grid-gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+        <div style="background:#f5f5f5;border-radius:24px;height:60px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan);">229px min</div>
+        <div style="background:#f5f5f5;border-radius:24px;height:60px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan);">229px min</div>
+        <div style="background:#f5f5f5;border-radius:24px;height:60px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan);">229px min</div>
+        <div style="background:#f5f5f5;border-radius:24px;height:60px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan);">229px min</div>
+        <div style="background:#f5f5f5;border-radius:24px;height:60px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:12px;color:var(--cyan);">229px min</div>
+      </div>
+    </div>
+
+    <!-- Split layout (tour360) -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-demo-title">Split layout — widget-tour360 .flexme</div>
+      <div class="ds-layout-annotation">display: flex · flex-direction: row · justify-content: space-between · align-items: center — .textbox: width 404px</div>
+      <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;">
+        <div style="width:300px;height:120px;background:var(--cyan-light);border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:13px;color:var(--cyan-dark);">textbox — 404px fixo</div>
+        <div style="flex:1;min-width:200px;height:120px;background:var(--gray-middle);border-radius:32px;display:flex;align-items:center;justify-content:center;font-family:'arboria-bold';font-size:13px;color:var(--gray-dark);">youtube_widget — flex:1 · border-radius 32px</div>
+      </div>
+    </div>
+
+    <!-- Spacing tokens -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-demo-title">Tokens de espaçamento observados</div>
+      <table class="ds-spacing-table">
+        <thead>
+          <tr>
+            <th>Token / Contexto</th>
+            <th>Valor</th>
+            <th>Visual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>gap cards (steps/especialidades)</td><td>25px</td><td><div class="ds-spacing-bar" style="width:25px;"></div></td></tr>
+          <tr><td>padding section (home)</td><td>60px 0</td><td><div class="ds-spacing-bar" style="width:60px;"></div></td></tr>
+          <tr><td>padding card (.item steps)</td><td>20px</td><td><div class="ds-spacing-bar" style="width:20px;"></div></td></tr>
+          <tr><td>border-radius card (24px)</td><td>24px</td><td><div class="ds-spacing-bar" style="width:24px;border-radius:24px;height:24px;"></div></td></tr>
+          <tr><td>border-radius card large (32px)</td><td>32px</td><td><div class="ds-spacing-bar" style="width:32px;border-radius:32px;height:32px;"></div></td></tr>
+          <tr><td>border-radius button primary</td><td>8px</td><td><div class="ds-spacing-bar" style="width:48px;border-radius:8px;height:16px;"></div></td></tr>
+          <tr><td>border-radius button outline</td><td>12px</td><td><div class="ds-spacing-bar" style="width:48px;border-radius:12px;height:16px;"></div></td></tr>
+          <tr><td>container padding</td><td>0 15px</td><td><div class="ds-spacing-bar" style="width:15px;"></div></td></tr>
+          <tr><td>gap dropdown items</td><td>8px</td><td><div class="ds-spacing-bar" style="width:8px;"></div></td></tr>
+          <tr><td>margin-top section header bar</td><td>8px</td><td><div class="ds-spacing-bar" style="width:8px;background:var(--cyan);"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Layout real: banner unidades -->
+    <div class="ds-layout-demo" style="margin-top:40px;">
+      <div class="ds-layout-demo-title">Layout real — widget-unidades (banner + box)</div>
+      <div class="ds-layout-annotation">Banner gradient + box-unidades: item-esq 31% cyan · item-dir 69% #F1FCFD</div>
+      <section class="widget-unidades">
+        <div class="banner">
+          <div class="mascote">
+            <img alt="mascote" class="mascotebuilding" loading="lazy" src="assets/home_unidades_mascotebuilding_e2b5163dfcb5.webp"/>
+            <img alt="mascote" class="mascotebuilding2 img-responsive" loading="lazy" src="assets/home_unidades_mascotebuilding__dfb85abb796b.webp"/>
+            <div class="box-text">São mais de<br/><span>521 unidades</span> espalhadas em todo o Brasil.
+              <a class="bt-agendar transition" href="#">encontre agora sua unidade</a>
+            </div>
+          </div>
+        </div>
+        <div class="box-unidades">
+          <div class="item-esq">
+            <div class="maps-box">
+              <img alt="icon" class="maps" loading="lazy" src="assets/icon_home_unidades_mapa_c446ef03ef7f.svg"/>
+              <div class="maps-text">Nossas últimas unidades</div>
+            </div>
+          </div>
+          <div class="item-dir">
+            <div class="item1 txt">São Gonçalo do Amarante<br/><span>RN</span></div>
+            <div class="item2 txt">Ribeirão Preto<br/><span>SP</span></div>
+            <div class="item3 txt">Dias D'Ávila<br/><span>BA</span></div>
+            <div class="item4 txt">São João Del Rei<br/><span>MG</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 5 — MOTION & INTERACTION
+     ============================================================ -->
+<div id="ds-motion" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">05 — Motion &amp; Interação</div>
+      <div class="ds-section-heading">Animações e transições</div>
+    </div>
+
+    <div class="ds-motion-gallery">
+
+      <!-- Transition global -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.transition — Global</div>
+        <div class="ds-motion-demo">
+          <a class="bt_marque_consulta transition" href="#" style="font-size:13px;padding:8px 16px;gap:8px;width:auto;height:auto;">Hover me</a>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">all 0.3s ease-in-out</code><br/>
+          Aplicado em: botões, links, ícones, cards, logo
+        </div>
+      </div>
+
+      <!-- Logo shine -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.mask a — Logo Shine</div>
+        <div class="ds-motion-demo">
+          <div class="mask">
+            <a href="#">
+              <img alt="logo" class="logo_top" loading="lazy" src="assets/logo_amorsaude_color_c113eac964a0.svg"/>
+            </a>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Hover: radial-gradient brilho percorre o logo<br/>
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">background-position transition 1s</code>
+        </div>
+      </div>
+
+      <!-- Card hover lift (especialidade) -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">Card Especialidade — Image Scale</div>
+        <div class="ds-motion-demo">
+          <div class="item dropshadow_light transition" style="background:#f5f5f5;border-radius:24px;width:140px;overflow:hidden;cursor:pointer;">
+            <a href="#" style="text-decoration:none;display:block;overflow:hidden;border-radius:24px;">
+              <img alt="icon" class="img_responsive transition" loading="lazy" src="assets/home_areas_ginecologia_4359e6336821.webp"/>
+            </a>
+            <p style="display:flex;align-items:center;justify-content:center;padding:6px 0;font-family:'arboria-bold';font-size:14px;color:var(--cyan);">Hover img</p>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Hover: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">scale: 1.1</code><br/>
+          Transição herdada de .transition
+        </div>
+      </div>
+
+      <!-- Step card hover background -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">Card Step — Background Change</div>
+        <div class="ds-motion-demo">
+          <div class="item transition" style="border-radius:16px;padding:16px;background:var(--cyan-light2);width:160px;cursor:default;">
+            <p style="font-family:'arboria-bold';font-size:13px;color:var(--red);">Hover me</p>
+            <p style="font-family:'arboria';font-size:11px;color:var(--gray-dark2);">background muda</p>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Default: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">--cyan-light2</code><br/>
+          Hover: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">--cyan-light3</code>
+        </div>
+      </div>
+
+      <!-- Nav underline animation -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.line_text — Nav Underline</div>
+        <div class="ds-motion-demo">
+          <div style="display:flex;gap:20px;">
+            <a class="line_text transition" href="#" style="font-family:'arboria-bold';font-size:13px;text-transform:uppercase;color:var(--cyan);text-decoration:none;position:relative;">Hover me</a>
+            <a class="line_text transition navactive" href="#" style="font-family:'arboria-bold';font-size:13px;text-transform:uppercase;text-decoration:none;position:relative;color:var(--red-light);" onclick="return false;">Active</a>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Hover: pseudo-element <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">::before scaleX(0→1)</code><br/>
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">transition: 0.5s ease · transform-origin: top center</code>
+        </div>
+      </div>
+
+      <!-- Menu icon scale -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.menu_two — Icon Scale + Color</div>
+        <div class="ds-motion-demo">
+          <div style="display:flex;gap:16px;">
+            <a class="menu_two line_text transition" href="#" style="flex-direction:column;align-items:center;gap:4px;font-family:'arboria-bold';font-size:11px;text-transform:uppercase;color:var(--cyan);text-decoration:none;">
+              <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_medicina_4f25846081a4.svg"/>Med
+            </a>
+            <a class="menu_two line_text transition" href="#" style="flex-direction:column;align-items:center;gap:4px;font-family:'arboria-bold';font-size:11px;text-transform:uppercase;color:var(--red-light);text-decoration:none;">
+              <img alt="icon" class="icon_menu_desktop transition" loading="lazy" src="assets/icon_menu_odontologia_ad0305f02dd2.svg" style="scale:1;filter:var(--filter-to-red);"/>Dent
+            </a>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Default: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">scale: 0.9 · grayscale filter</code><br/>
+          Hover: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">scale: 1 · --filter-to-red</code>
+        </div>
+      </div>
+
+      <!-- Loader animation -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.loader — Keyframe l5</div>
+        <div class="ds-motion-demo">
+          <div class="loader"></div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">animation: l5 1.5s infinite cubic-bezier(0.3,1,0,1)</code><br/>
+          4 quadrados rotacionando
+        </div>
+      </div>
+
+      <!-- bounceInLeft -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.bounceInLeft — Entrada</div>
+        <div class="ds-motion-demo" style="overflow:hidden;">
+          <div class="bounceInLeft" style="font-family:'arboria-bold';font-size:14px;color:var(--cyan);">
+            Faça um Tour 360.
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Usado em: .widget-tour360 .textbox<br/>
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">bounceInLeft 1s both</code>
+        </div>
+      </div>
+
+      <!-- Preload blur -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">.preload-blur → .preload-ok</div>
+        <div class="ds-motion-demo" style="gap:12px;flex-direction:row;">
+          <div>
+            <img src="assets/home_areas_ginecologia_4359e6336821.webp" class="preload-blur" style="width:80px;border-radius:8px;"/>
+            <div style="font-family:'arboria';font-size:10px;text-align:center;color:var(--gray-dark);margin-top:4px;">.preload-blur</div>
+          </div>
+          <div>
+            <img src="assets/home_areas_ginecologia_4359e6336821.webp" class="preload-blur preload-ok" style="width:80px;border-radius:8px;"/>
+            <div style="font-family:'arboria';font-size:10px;text-align:center;color:var(--gray-dark);margin-top:4px;">.preload-ok</div>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">filter: blur(5px) → none · transition: 0.5s ease</code>
+        </div>
+      </div>
+
+      <!-- Hamburger menu -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">#menuToggle — Hamburger</div>
+        <div class="ds-motion-demo">
+          <div id="menuToggle" style="position:relative;">
+            <input id="enable_menu_demo" type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Check para fechar → cruza<br/>
+          <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0)</code>
+        </div>
+      </div>
+
+      <!-- Imoji hover -->
+      <div class="ds-motion-card">
+        <div class="ds-motion-card-title">footer .icon_emoji — Scale hover</div>
+        <div class="ds-motion-demo">
+          <span style="font-family:'arboria';font-size:16px;color:#fff;background:var(--green-cyan);padding:8px 12px;border-radius:8px;">
+            Fornecendo acesso
+            <img alt="heart" class="icon_emoji transition" loading="lazy" src="assets/icon_hearth_red_73f832ea7e61.svg" style="display:inline !important;border:none !important;box-shadow:none !important;height:14px !important;width:14px !important;margin:0 0.07em !important;vertical-align:-0.1em !important;background:none !important;padding:0 !important;"/>
+          </span>
+        </div>
+        <div style="font-family:'arboria';font-size:11px;color:var(--gray-dark);margin-top:12px;">
+          Hover emoji: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:10px;">scale: 1.5</code>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 6 — ICONS
+     ============================================================ -->
+<div id="ds-icons" class="ds-section">
+  <div class="container">
+    <div class="ds-section-header">
+      <div class="ds-section-title">06 — Ícones</div>
+      <div class="ds-section-heading">Sistema de ícones SVG</div>
+    </div>
+
+    <div style="font-family:'arboria';font-size:14px;color:var(--gray-dark);margin-bottom:24px;line-height:1.6;">
+      Os ícones são arquivos <strong>.svg</strong> referenciados via <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:12px;">&lt;img&gt;</code> com filtros CSS para troca de cor.
+      Não há font icon — o sistema usa filtros: <code style="background:var(--gray-light2);padding:2px 6px;border-radius:4px;font-size:12px;">--filter-to-white · --filter-to-cian · --filter-to-red · --filter-to-gray</code>.
+    </div>
+
+    <!-- Navigation icons -->
+    <div class="ds-component-group-title">Ícones de navegação / menu</div>
+    <div class="ds-icon-grid" style="margin-bottom:40px;">
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="medicina" src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:28px;height:28px;filter:var(--filter-to-cian);"/>
+          <img alt="medicina" src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:20px;height:20px;filter:var(--filter-to-red);"/>
+        </div>
+        <span class="ds-icon-label">icon_menu_medicina<br/>28px / 20px · cian · red</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="odontologia" src="assets/icon_menu_odontologia_ad0305f02dd2.svg" style="width:28px;height:28px;filter:var(--filter-to-cian);"/>
+          <img alt="odontologia" src="assets/icon_menu_odontologia_ad0305f02dd2.svg" style="width:20px;height:20px;filter:var(--filter-to-red);"/>
+        </div>
+        <span class="ds-icon-label">icon_menu_odontologia<br/>28px / 20px</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="cirurgias" src="assets/icon_menu_cirurgias_38dc45c46266.svg" style="width:28px;height:28px;filter:var(--filter-to-cian);"/>
+          <img alt="cirurgias" src="assets/icon_menu_cirurgias_38dc45c46266.svg" style="width:20px;height:20px;filter:var(--filter-to-red);"/>
+        </div>
+        <span class="ds-icon-label">icon_menu_cirurgias<br/>28px / 20px</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="portal paciente" src="assets/icon_menu_portal_paciente_3d62307d840b.svg" style="width:28px;height:28px;filter:var(--filter-to-cian);"/>
+          <img alt="portal paciente" src="assets/icon_menu_portal_paciente_3d62307d840b.svg" style="width:20px;height:20px;filter:var(--filter-to-white);background:var(--cyan);padding:2px;border-radius:4px;"/>
+        </div>
+        <span class="ds-icon-label">icon_menu_portal<br/>28px / 20px</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="dropdown" src="assets/icon_marque_dropdown_app_cdt_f06b25b5e213.svg" style="width:28px;height:28px;"/>
+        </div>
+        <span class="ds-icon-label">icon_marque_dropdown_app_cdt<br/>28px</span>
+      </div>
+    </div>
+
+    <!-- Home steps icons -->
+    <div class="ds-component-group-title">Ícones de steps (home)</div>
+    <div class="ds-icon-grid" style="margin-bottom:40px;">
+      <div class="ds-icon-item">
+        <img alt="step1" src="assets/icon_home_steps_1_cdc228786b3c.svg" style="width:56px;height:56px;"/>
+        <span class="ds-icon-label">step 1<br/>56px</span>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="step2" src="assets/icon_home_steps_2_693a7980a5a5.svg" style="width:56px;height:56px;"/>
+        <span class="ds-icon-label">step 2<br/>56px</span>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="step3" src="assets/icon_home_steps_3_0a7b85877685.svg" style="width:56px;height:56px;"/>
+        <span class="ds-icon-label">step 3<br/>56px</span>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="step4" src="assets/icon_home_steps_4_62fda0e92b37.svg" style="width:56px;height:56px;"/>
+        <span class="ds-icon-label">step 4<br/>56px</span>
+      </div>
+    </div>
+
+    <!-- Unidades icons -->
+    <div class="ds-component-group-title">Ícones de unidades</div>
+    <div class="ds-icon-grid" style="margin-bottom:40px;">
+      <div class="ds-icon-item">
+        <img alt="mapa" src="assets/icon_home_unidades_mapa_c446ef03ef7f.svg" style="width:72px;height:64px;"/>
+        <span class="ds-icon-label">icon_home_unidades_mapa<br/>72×64px</span>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="redcircle2" src="assets/icon_home_unidades_redcircle_2_b837be139fe3.svg" style="width:64px;height:64px;"/>
+        <span class="ds-icon-label">redcircle_2<br/>64px</span>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="redcircle3" src="assets/icon_home_unidades_redcircle_3_09d160736776.svg" style="width:64px;height:64px;"/>
+        <span class="ds-icon-label">redcircle_3<br/>64px</span>
+      </div>
+    </div>
+
+    <!-- Social icons -->
+    <div class="ds-component-group-title">Ícones de redes sociais</div>
+    <div class="ds-icon-grid" style="margin-bottom:40px;">
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="facebook" src="assets/icon_rs_facebook_d5fb250b4305.svg" style="width:24px;height:24px;"/>
+          <img alt="facebook" src="assets/icon_rs_facebook_d5fb250b4305.svg" style="width:24px;height:24px;filter:var(--filter-to-white);background:var(--green-cyan);padding:4px;border-radius:6px;"/>
+        </div>
+        <span class="ds-icon-label">icon_rs_facebook<br/>24px · white in footer</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="linkedin" src="assets/icon_rs_linkedin_6a44f20036dc.svg" style="width:24px;height:24px;"/>
+          <img alt="linkedin" src="assets/icon_rs_linkedin_6a44f20036dc.svg" style="width:24px;height:24px;filter:var(--filter-to-white);background:var(--green-cyan);padding:4px;border-radius:6px;"/>
+        </div>
+        <span class="ds-icon-label">icon_rs_linkedin<br/>24px</span>
+      </div>
+      <div class="ds-icon-item">
+        <div class="ds-icon-sizes">
+          <img alt="youtube" src="assets/icon_rs_youtube_58e32f54d856.svg" style="width:24px;height:24px;"/>
+          <img alt="youtube" src="assets/icon_rs_youtube_58e32f54d856.svg" style="width:24px;height:24px;filter:var(--filter-to-white);background:var(--green-cyan);padding:4px;border-radius:6px;"/>
+        </div>
+        <span class="ds-icon-label">icon_rs_youtube<br/>24px</span>
+      </div>
+    </div>
+
+    <!-- Filter token table -->
+    <div class="ds-component-group-title">Tokens de filtro de cor (CSS filter)</div>
+    <table class="ds-spacing-table" style="max-width:700px;">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Resultado</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code style="font-size:11px;">--filter-to-white</code></td>
+          <td>SVG → Branco</td>
+          <td><img src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:20px;filter:var(--filter-to-white);background:var(--cyan);padding:2px;border-radius:4px;"/></td>
+        </tr>
+        <tr>
+          <td><code style="font-size:11px;">--filter-to-cian</code></td>
+          <td>SVG → Cyan</td>
+          <td><img src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:20px;filter:var(--filter-to-cian);"/></td>
+        </tr>
+        <tr>
+          <td><code style="font-size:11px;">--filter-to-gray</code></td>
+          <td>SVG → Cinza</td>
+          <td><img src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:20px;filter:var(--filter-to-gray);"/></td>
+        </tr>
+        <tr>
+          <td><code style="font-size:11px;">--filter-to-red</code></td>
+          <td>SVG → Vermelho</td>
+          <td><img src="assets/icon_menu_medicina_4f25846081a4.svg" style="width:20px;filter:var(--filter-to-red);"/></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     FOOTER (exact clone)
+     ============================================================ -->
+<section id="prefooter">
+  <div class="titulo_numbers">+DE <span>4.000</span></div>
+  <p>tipos de estilos documentados neste</p>
+  <p>Design System AmorSaúde</p>
+  <div class="group_parceiros">
+    <img alt="lab-to-lab Pardini" class="logo_parceiros" loading="lazy" src="assets/logo_parceiros_lab-to-lab_pard_3a74518b2b75.svg"/>
+    <img alt="DB diagnósticos" class="logo_parceiros" loading="lazy" src="assets/logo_parceiros_db_diagnosticos_3fc3de3491c2.svg"/>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer_top_mobile">
+      <img alt="logo" class="footer_logo_white" loading="lazy" src="assets/logo_amorsaude_white_7bc229ea1f48.svg"/>
+      <div class="footer_txt">Design System vivo — todas as classes e tokens são os originais do site AmorSaúde. <img alt="icon" class="icon_emoji transition" loading="lazy" src="assets/icon_hearth_red_73f832ea7e61.svg"/></div>
+    </div>
+    <div class="footer_main_group">
+      <div class="footer_group1">
+        <div class="footer_top_desktop">
+          <img alt="logo" class="footer_logo_white" loading="lazy" src="assets/logo_amorsaude_white_7bc229ea1f48.svg"/>
+          <div class="footer_txt">Design System vivo — todas as classes e tokens são os originais do site AmorSaúde. <img alt="icon" class="icon_emoji transition" loading="lazy" src="assets/icon_hearth_red_73f832ea7e61.svg"/></div>
+        </div>
+        <div class="footer_subtitulo tit_rs">Navegue pelas seções:</div>
+        <div class="group_rs">
+          <a href="#ds-typography" title="Tipografia"><img alt="Tipografia" class="transition" loading="lazy" src="assets/icon_rs_facebook_d5fb250b4305.svg"/></a>
+          <a href="#ds-colors" title="Cores"><img alt="Cores" class="transition" loading="lazy" src="assets/icon_rs_linkedin_6a44f20036dc.svg"/></a>
+          <a href="#ds-components" title="Componentes"><img alt="Componentes" class="transition" loading="lazy" src="assets/icon_rs_youtube_58e32f54d856.svg"/></a>
+        </div>
+      </div>
+      <div class="footer_group2">
+        <div class="group_right">
+          <div class="footer_group2_institucional">
+            <div class="footer_titulo">Seções</div>
+            <a class="footer_txt item_start transition" href="#ds-hero">Hero</a>
+            <a class="footer_txt transition" href="#ds-typography">Tipografia</a>
+            <a class="footer_txt transition" href="#ds-colors">Cores &amp; Superfícies</a>
+            <a class="footer_txt transition" href="#ds-components">Componentes</a>
+            <a class="footer_txt transition" href="#ds-layout">Layout &amp; Espaçamento</a>
+          </div>
+          <div class="footer_group2_servicos">
+            <div class="footer_titulo">Tokens</div>
+            <a class="footer_txt item_start transition" href="#ds-motion">Motion &amp; Interação</a>
+            <a class="footer_txt transition" href="#ds-icons">Ícones</a>
+          </div>
+        </div>
+        <div class="footer_group2_btns" style="justify-content:start !important">
+          <a class="bt_resultado_exames bt_seja_fornecedor transition" href="#ds-components"><img alt="icon" class="icon_resultado_exames transition" loading="lazy" src="assets/icon_seja_fornecedor_e9d051f162af.svg"/>Ver Componentes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<section id="footer_partners">
+  <div class="container">
+    <div class="titulo">Design System AmorSaúde — baseado nos assets originais</div>
+    <div class="group_logo_partners">
+      <img alt="MaisTodos" class="logo_partners" loading="lazy" src="assets/logo_maistodos_62a005c04212.svg"/>
+      <img alt="Cartão de Todos" class="logo_partners" loading="lazy" src="assets/logo_cartao_de_todos_352980c75cdf.svg"/>
+      <img alt="Refuturiza" class="logo_partners" loading="lazy" src="assets/logo_refuturiza_76889dbf939c.svg"/>
+    </div>
+    <div class="line_gray"></div>
+    <div class="txt_privacy">Este arquivo reutiliza as classes CSS, fontes e assets originais do site. <a href="#ds-hero">Voltar ao topo.</a></div>
+  </div>
+</section>
+
+<div class="container">
+  <div id="cnpj_rodape">Design System · AmorSaúde · Gerado a partir dos assets originais de amorsaude.com.br · Fontes: Arboria Regular / Bold / Black · CSS: style_74e4cf314fb0.css</div>
+</div>
+
+<script src="assets/jquery-3_b11122ba7dba.js"></script>
+<script src="assets/slider_d1a366cce91c.js"></script>
+<script src="assets/scripts_787e2cb1589a.js"></script>
+<script>
+// Smooth scroll for DS nav
+document.querySelectorAll('#ds-nav a').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
